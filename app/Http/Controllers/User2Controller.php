@@ -25,43 +25,44 @@ Class User2Controller extends Controller {
       $this->user2Service = $user2Service;
     }
 
-    public function getUsers(){
-      
+    /**
+     * Return the list of users
+     * @return Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return $this->successResponse($this->user2Service->obtainUsers2());
+    }
+
+    public function add(Request $request)
+    {
+        return $this->successResponse($this->user2Service->createUser2($request->all(), Response::HTTP_CREATED));
     }
 
     /**
-    * Return the list of users
-    * @return Illuminate\Http\Response
-    */
-    public function index(){
-        
-    }
-
-    public function add(Request $request ){
-        
+     * Obtains and show one user
+     * @return Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return $this->successResponse($this->user2Service->obtainUser2($id));
     }
 
     /**
-    * Obtains and show one user
-    * @return Illuminate\Http\Response
-    */
-    public function show($id){
-        
+     * Update an existing user
+     * @return Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return $this->successResponse($this->user2Service->editUser2($request->all(), $id));
     }
 
     /**
-    * Update an existing author
-    * @return Illuminate\Http\Response
-    */
-    public function update(Request $request,$id){
-        
-    }
-
-    /**
-    * Remove an existing user
-    * @return Illuminate\Http\Response
-    */
-    public function delete($id){
-        
+     * Remove an existing user
+     * @return Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        return $this->successResponse($this->user2Service->deleteUser2($id));
     }
 }
