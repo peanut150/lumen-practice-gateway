@@ -34,6 +34,6 @@ class User1Service{
      */
     public function createUser1($data)
     {
-        return $this->performRequest('POST', '/addUsers', $data);
+        return $this->performRequest('POST', '/users', $data);
     }
 }
