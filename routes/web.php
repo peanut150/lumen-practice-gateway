@@ -21,3 +21,4 @@ $router->get('/', function () use ($router) {
 $router->get('/users1', 'User1Controller@index'); // get all users
 $router->post('/users1', 'User1Controller@add'); // create new user record
 $router->get('/users1/{id}', 'User1Controller@show'); // get user by id
+$router->put('/users1/{id}', 'User1Controller@update'); // update user record

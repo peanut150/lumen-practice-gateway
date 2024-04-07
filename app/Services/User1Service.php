@@ -45,4 +45,13 @@ class User1Service{
     {
         return $this->performRequest('GET', "/users/{$id}");
     }
+
+    /**
+     * Update an instance of user1 using the User1 service
+     * @return string
+     */
+    public function editUser1($data, $id)
+    {
+        return $this->performRequest('PUT', "/users/{$id}", $data);
+    }
 }

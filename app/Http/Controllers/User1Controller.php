@@ -47,5 +47,14 @@ Class User1Controller extends Controller {
     {
         return $this->successResponse($this->user1Service->obtainUser1($id));
     }
+
+    /**
+     * Update an existing user
+     * @return Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        return $this->successResponse($this->user1Service->editUser1($request->all(), $id));
+    }
     
 }
