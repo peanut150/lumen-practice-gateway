@@ -54,4 +54,13 @@ class User1Service{
     {
         return $this->performRequest('PUT', "/users/{$id}", $data);
     }
+
+    /**
+     * Remove a single user using the User1 Service
+     * @return string
+     */
+    public function deleteUser1($id)
+    {
+        return $this->performRequest('DELETE', "/users/{$id}");
+    }
 }
