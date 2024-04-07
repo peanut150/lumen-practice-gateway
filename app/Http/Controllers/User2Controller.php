@@ -5,23 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Traits\ApiResponser;
-
 use App\Services\User2Service;
 
-Class UserController extends Controller {
+Class User2Controller extends Controller {
 
     use ApiResponser;
 
     /**
-     *  The service to consume the Users Microservice
+     *  The service to consume the User2 Microservice
      * @var User2Service
      */
     public $user2Service;
 
-    
-
-    public function __construct(Request $request){
-      
+    /**
+     * Create a new controller instance
+     * @return void
+     */
+    public function __construct(User2Service $user2Service){
+      $this->user2Service = $user2Service;
     }
 
     public function getUsers(){
