@@ -36,4 +36,13 @@ class User1Service{
     {
         return $this->performRequest('POST', '/users', $data);
     }
+
+    /**
+     * Obtain one single user from the User1 service
+     * @return string
+     */
+    public function obtainUser1($id)
+    {
+        return $this->performRequest('GET', "/users/{$id}");
+    }
 }

@@ -20,3 +20,4 @@ $router->get('/', function () use ($router) {
 // API GATEWAY ROUTES FOR SITES1 users
 $router->get('/users1', 'User1Controller@index'); // get all users
 $router->post('/users1', 'User1Controller@add'); // create new user record
+$router->get('/users1/{id}', 'User1Controller@show'); // get user by id

@@ -38,5 +38,14 @@ Class User1Controller extends Controller {
     {
         return $this->successResponse($this->user1Service->createUser1($request->all(), Response::HTTP_CREATED));
     }
+
+    /**
+     * Obtains and show one user
+     * @return Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return $this->successResponse($this->user1Service->obtainUser1($id));
+    }
     
 }
