@@ -33,5 +33,10 @@ Class User1Controller extends Controller {
     {
         return $this->successResponse($this->user1Service->obtainUsers1());
     }
+
+    public function add(Request $request)
+    {
+        return $this->successResponse($this->user1Service->createUser1($request->all(), Response::HTTP_CREATED));
+    }
     
 }

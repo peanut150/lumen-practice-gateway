@@ -27,4 +27,13 @@ class User1Service{
     {
         return $this->performRequest('GET', '/users');
     }
+
+    /**
+     * Create one user using the User1 service
+     * @return string
+     */
+    public function createUser1($data)
+    {
+        return $this->performRequest('POST', '/addUsers', $data);
+    }
 }
