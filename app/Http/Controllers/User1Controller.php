@@ -25,43 +25,13 @@ Class User1Controller extends Controller {
        $this->user1Service = $user1Service;
     }
 
-    public function getUsers(){
-       
-    }
-
     /**
-    * Return the list of users
-    * @return Illuminate\Http\Response
-    */
-    public function index(){
-       
+     * Return the list of users
+     * @return Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return $this->successResponse($this->user1Service->obtainUsers1());
     }
-
-    public function add(Request $request ){
-       
-    }
-
-    /**
-    * Obtains and show one user
-    * @return Illuminate\Http\Response
-    */
-    public function show($id){
-       
-    }
-
-    /**
-    * Update an existing author
-    * @return Illuminate\Http\Response
-    */
-    public function update(Request $request,$id){
-        
-    }
-
-    /**
-    * Remove an existing user
-    * @return Illuminate\Http\Response
-    */
-    public function delete($id){
-        
-    }
+    
 }
