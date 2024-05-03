@@ -17,16 +17,20 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-// API GATEWAY ROUTES FOR SITES1 users
-$router->get('/users1', 'User1Controller@index'); // get all users
-$router->post('/users1', 'User1Controller@add'); // create new user record
-$router->get('/users1/{id}', 'User1Controller@show'); // get user by id
-$router->put('/users1/{id}', 'User1Controller@update'); // update user record
-$router->delete('/users1/{id}', 'User1Controller@delete'); // delete user
+$router->group(['middleware' => 'client.credentials'], function () use ($router) {
 
-// API GATEWAY ROUTES FOR SITES2 users
-$router->get('/users2', 'User2Controller@index'); // get all users
-$router->post('/users2', 'User2Controller@add'); // create new user record
-$router->get('/users2/{id}', 'User2Controller@show'); // get user by id
-$router->put('/users2/{id}', 'User2Controller@update'); // update user record
-$router->delete('/users2/{id}', 'User2Controller@delete'); // delete user
+    // API GATEWAY ROUTES FOR SITES1 users
+    $router->get('/users1', 'User1Controller@index'); // get all users
+    $router->post('/users1', 'User1Controller@add'); // create new user record
+    $router->get('/users1/{id}', 'User1Controller@show'); // get user by id
+    $router->put('/users1/{id}', 'User1Controller@update'); // update user record
+    $router->delete('/users1/{id}', 'User1Controller@delete'); // delete user
+
+    // API GATEWAY ROUTES FOR SITES2 users
+    $router->get('/users2', 'User2Controller@index'); // get all users
+    $router->post('/users2', 'User2Controller@add'); // create new user record
+    $router->get('/users2/{id}', 'User2Controller@show'); // get user by id
+    $router->put('/users2/{id}', 'User2Controller@update'); // update user record
+    $router->delete('/users2/{id}', 'User2Controller@delete'); // delete user
+
+});
